@@ -18,7 +18,7 @@ public class View_Game extends View implements View.OnClickListener{
     private int mRectheight;
     private int mRectwidth;
     private int Grade=0;
-    private int Speed=3;
+    private int Speed=5;
     private String text;
     private Paint mPaint;
     private Paint mPaint2;
@@ -61,7 +61,7 @@ public class View_Game extends View implements View.OnClickListener{
         mArraylist_Rect.add(rectPostion);
 
         Grade=0;
-        Speed=3;
+        Speed=5;
     }
 
     /**
@@ -174,8 +174,20 @@ public class View_Game extends View implements View.OnClickListener{
             {
                 mArraylist_Rect.remove(i);
                 Grade+=1;
-                if(Grade<10)Speed=5;
-                else Speed=Grade/5*3;
+                if(Grade>=5&&Grade<10)Speed=10;
+                else if(Grade>=10&&Grade<15)Speed=13;
+                else if(Grade>=15&&Grade<20)Speed=16;
+                else if(Grade>=20&&Grade<25)Speed=19;
+                else if(Grade>=25&&Grade<30)Speed=22;
+                else if(Grade>=30&&Grade<=45)Speed=25;
+                else if(Grade>=45&&Grade<=60)Speed=28;
+                else if(Grade>=60&&Grade<=80)Speed=31;
+                else if(Grade>=80&&Grade<=100)Speed=15;
+                else if(Grade>=100&&Grade<=120)Speed=37;
+                else if(Grade>=120&&Grade<=140)Speed=41;
+                else if(Grade>=140&&Grade<=160)Speed=45;
+                else if(Grade>=160&&Grade<=180)Speed=59;
+                else if(Grade>=180)Speed=55;
             }
         }
         return super.onTouchEvent(event);
